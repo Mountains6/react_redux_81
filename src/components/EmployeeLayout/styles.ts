@@ -1,0 +1,52 @@
+import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
+
+export const LayoutComponent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px;
+  background: rgb(255, 255, 255);
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  gap: 26px;
+`;
+
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(6, 29, 40);
+  cursor: pointer;
+`;
+
+
+export const NavContainer = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(28, 85, 111);
+`;
+
+export const Main = styled.div`
+  display: flex;
+  flex: 1;
+`;
