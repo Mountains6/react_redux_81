@@ -16,7 +16,7 @@ export const ButtonWrapper = styled.div`
   width: 100px;
 `;
 
-export const ResultContainer = styled.div`
+export const Result = styled.div`
   font-size: 28px;
   font-weight: bold;
   color: rgb(46, 13, 81);
