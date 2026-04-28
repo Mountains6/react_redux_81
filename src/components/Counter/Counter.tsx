@@ -14,17 +14,16 @@ function Counter() {
 
   // 12. Забираем значение из глобального стейта
   const counter = useAppSelector(counterSelectors.counterValue)
-  
+
   const onCounterMinus = (): void => {
     dispatch(counterActions.minus())
   }
   const onCounterPlus = (): void => {
     dispatch(counterActions.plus())
   }
-
-  // const onCounterClear = (): void => {
-  //   setCounter(0);
-  // };
+  const onCounterClear = (): void => {
+    dispatch(counterActions.clear())
+  }
 
   return (
     <CounterWrapper>
@@ -35,9 +34,9 @@ function Counter() {
       <ButtonWrapper>
         <Button name="+" onButtonClick={onCounterPlus} />
       </ButtonWrapper>
-      {/* <ButtonWrapper>
+      <ButtonWrapper>
         <Button name="Clear" onButtonClick={onCounterClear} />
-      </ButtonWrapper> */}
+      </ButtonWrapper>
     </CounterWrapper>
   )
 }
