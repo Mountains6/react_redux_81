@@ -1,60 +1,46 @@
-import { v4 } from "uuid";
-import { useNavigate } from "react-router-dom";
-import { createContext, useState } from "react";
-
-import NavigationLink from "../NavigationLink/NavigationLink";
-import { navLinkData } from "./data";
+import { useNavigate } from "react-router-dom"
+import { v4 } from "uuid"
+import NavigationLink from "../NavigationLink/NavigationLink"
+import { navLinkData } from "./data"
 import {
-  Footer,
-  GoBackButton,
+  BackArrowContainer,
   Header,
   LayoutComponent,
   Logo,
   LogoContainer,
   Main,
   NavContainer,
-} from "./styles";
-import type { LayoutProps, NavLinkObject } from "./types";
-
-export const LayoutComponentContext = createContext<string | undefined>(
-  undefined,
-);
+} from "./styles"
+import type { LayoutProps, NavLinkObject } from "./types"
 
 function Layout({ children }: LayoutProps) {
-  const [name] = useState<string | undefined>("Yana");
+  const navigate = useNavigate()
+  const handleGoBack = () => {
+    navigate(-1)
+  }
 
-  const navigate = useNavigate();
-  const goToHomePage = () => {
-    navigate("/");
-  };
-
-  const goBack = () => {
-    navigate(-1);
-  };
-
-  const navLinks = navLinkData.map((navLink: NavLinkObject) => {
-    return (
-      <NavigationLink key={v4()} to={navLink.to} linkName={navLink.linkName} />
-    );
-  });
+  const goToHomePage = () => navigate("/")
 
   return (
-    <LayoutComponentContext.Provider value={name}>
-      <LayoutComponent>
-        <Header>
-          <LogoContainer>
-            <Logo onClick={goToHomePage}>81</Logo>
-            <GoBackButton onClick={goBack}>{"<--"}</GoBackButton>
-          </LogoContainer>
-          <NavContainer>{navLinks}</NavContainer>
-        </Header>
-        <Main>{children}</Main>
-        <Footer>
-          <Logo onClick={goToHomePage}>81</Logo>
-        </Footer>
-      </LayoutComponent>
-    </LayoutComponentContext.Provider>
-  );
+    <LayoutComponent>
+      <Header>
+        <LogoContainer>
+          <BackArrowContainer onClick={handleGoBack}>{"<"}</BackArrowContainer>
+          <Logo onClick={goToHomePage}>Weather App</Logo>
+        </LogoContainer>
+        <NavContainer>
+          {navLinkData.map((navLink: NavLinkObject) => (
+            <NavigationLink
+              key={v4()}
+              to={navLink.to}
+              linkName={navLink.linkName}
+            />
+          ))}
+        </NavContainer>
+      </Header>
+      <Main>{children}</Main>
+    </LayoutComponent>
+  )
 }
 
-export default Layout;
+export default Layout

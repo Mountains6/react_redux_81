@@ -3,12 +3,13 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 import { counterSlice } from "./slices/counter/counterSlice"
 import { jokesSlice } from "./slices/jokes/jokesSlice"
+import { weatherSlice } from "./slices/weather/weatherSlice"
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
 
 // 8. Передать counterSlice в combineSlices
-const rootReducer = combineSlices(counterSlice, jokesSlice)
+const rootReducer = combineSlices(counterSlice, jokesSlice, weatherSlice)
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>
 

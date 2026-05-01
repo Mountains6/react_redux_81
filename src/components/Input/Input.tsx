@@ -1,5 +1,5 @@
-import { InputComponent, InputElement, Label, Error } from "./styles";
-import type { InputProps } from "./types";
+import { InputComponent, InputElement, Label, Error } from "./styles"
+import type { InputProps } from "./types"
 
 function Input({
   name,
@@ -24,7 +24,7 @@ function Input({
       />
       <Error>{error}</Error>
     </InputComponent>
-  );
+  )
 }
 
-export default Input;
+export default Input

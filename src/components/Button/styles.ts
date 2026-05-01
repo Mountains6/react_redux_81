@@ -1,24 +1,33 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
 interface MyButtonProps {
-  $isDanger?: boolean;
+  $isDanger?: boolean
 }
 
 export const MyButton = styled.button<MyButtonProps>`
   width: 100%;
-  /* Потом можно удалить */
-  height: 100px;
-  padding: 20px;
+  padding: 0 30px;
+  height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
   background-color: ${({ $isDanger }) =>
-    $isDanger ? "rgb(116, 29, 32)" : "rgb(144, 64, 110)"};
+    $isDanger ? "rgb(116, 29, 32)" : "rgba(54, 97, 209, 0.9)"};
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 30px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background-color: #173d1e;
+    background-color: #1c3d8a;
+    transform: translateY(-2px);
   }
-`;
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+`

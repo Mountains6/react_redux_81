@@ -1,14 +1,14 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 
 export interface LayoutProps {
-    children: ReactNode
+  children: ReactNode
 }
 
 export interface NavLinkObject {
-    to: string;
-    linkName: string;
+  to: string
+  linkName: string
 }
 
 export interface NameData {
-    name: string;
+  name: string
 }
