@@ -23,6 +23,7 @@ export const jokesSlice = createAppSlice({
     fetchEnd: create.reducer((state: JokesState) => {
       state.isLoading = false
     }),
+    clear: create.reducer(() => jokesInitialState),
   }),
   selectors: {
     jokesData: (state: JokesState) => state,

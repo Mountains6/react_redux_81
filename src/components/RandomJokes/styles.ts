@@ -4,6 +4,7 @@ export const RandomJokesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
   flex: 1;
   padding: 40px;
   background-color: #d7a7c2ff;

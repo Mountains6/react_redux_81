@@ -23,6 +23,7 @@ function RandomJokes() {
 
   const getJoke = async () => {
     dispath(jokesSliceActions.fetchStart())
+    dispath(jokesSliceActions.clear())
 
     try {
       const result = await axios.get(
